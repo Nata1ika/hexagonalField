@@ -1,3 +1,6 @@
 hexagonalField_unity3d/Library/
 hexagonalField_unity3d/Temp/
 hexagonalField_unity3d/hexagonalField_unity3d.sln
+hexagonalField_unity3d/obj/Debug/
+hexagonalField_unity3d/Assembly-CSharp.csproj
+hexagonalField_unity3d/.vs/
