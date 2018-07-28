@@ -663,9 +663,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 
-  projectName: Template_3D
-  organizationId: 
+  cloudProjectId: f1fa7fd8-71fc-404f-af92-9c6fd7313ea5
+  projectName: hexagonalField_unity3d
+  organizationId: nata1ika
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
