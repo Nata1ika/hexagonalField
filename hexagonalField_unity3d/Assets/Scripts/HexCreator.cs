@@ -4,33 +4,45 @@ using UnityEngine;
 
 public class HexCreator : MonoBehaviour
 {
-    public static System.Action<List<Hex>> CreateEvent;
+    public static System.Action<List<Hex>> ShowEvent;
+    public static System.Action HideEvent;
 
     [SerializeField] GameObject _prefab;
 
-    public const float DELTAX = 1.5f;
-    public const float DELTAZ = 1.72f;
+    public const float DELTAX = 1.503f;
+    public const float DELTAZ = 1.732f;
 
     public int CountX { get; set; }
     public int CountZ { get; set; }
 
     List<Hex> _hex = new List<Hex>();
 
-    void Start()
+    private void OnDestroy()
     {
-        CountX = 10;
-        CountZ = 4;
-        Create();
+        _prefab.SetActive(true);
     }
 
-    void Create()
+    public void Show()
     {
+        _prefab.SetActive(false);
         CteateOrDestroyNeedCount();
         SetPosition();
 
-        if (CreateEvent != null)
+        if (ShowEvent != null)
         {
-            CreateEvent(_hex);
+            ShowEvent(_hex);
+        }
+    }
+
+    public void Hide()
+    {
+        foreach (var hex in _hex)
+        {
+            hex.gameObject.SetActive(false);
+        }
+        if (HideEvent != null)
+        {
+            HideEvent();
         }
     }
 
@@ -93,5 +105,6 @@ public class Hex
         gameObject = obj;
         transform = obj.transform;
         renderer = obj.GetComponent<MeshRenderer>();
+        //animation = obj.GetComponent<Animation>();
     }
 }

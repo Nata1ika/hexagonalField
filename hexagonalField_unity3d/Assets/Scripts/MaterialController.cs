@@ -16,12 +16,18 @@ public class MaterialController : MonoBehaviour
 
     void Awake()
     {
-        HexCreator.CreateEvent += SetMaterial;
+        HexCreator.ShowEvent += SetMaterial;
+        HexCreator.HideEvent += Hide;
     }  
 
     void OnDestroy()
     {
-        HexCreator.CreateEvent -= SetMaterial;
+        HexCreator.ShowEvent -= SetMaterial;
+    }
+
+    void Hide()
+    {
+        StopAllCoroutines();
     }
 
     void SetMaterial(List<Hex> obj)

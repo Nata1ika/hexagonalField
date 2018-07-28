@@ -11,21 +11,25 @@ public class CameraController : MonoBehaviour
 
     private void Awake()
     {
-        HexCreator.CreateEvent += UpdatePosition;
+        HexCreator.ShowEvent += UpdatePosition;
     }
 
     private void OnDestroy()
     {
-        HexCreator.CreateEvent -= UpdatePosition;
+        HexCreator.ShowEvent -= UpdatePosition;
     }
 
     private void UpdatePosition(List<Hex> obj)
     {
         transform.position = GetCentrPosition();
         float radius = MaxRadius();
-        _freeLookVirtualCamera.m_Orbits[0].m_Radius = radius * 2f;
-        _freeLookVirtualCamera.m_Orbits[1].m_Radius = radius * 1.5f;
-        _freeLookVirtualCamera.m_Orbits[2].m_Radius = radius * 1.2f;
+        _freeLookVirtualCamera.m_Orbits[0].m_Radius = radius * 0.5f;
+        _freeLookVirtualCamera.m_Orbits[1].m_Radius = radius;        
+        _freeLookVirtualCamera.m_Orbits[2].m_Radius = radius;
+
+        _freeLookVirtualCamera.m_Orbits[0].m_Height = radius * 1f;
+        _freeLookVirtualCamera.m_Orbits[1].m_Height = radius * 0.5f;
+        _freeLookVirtualCamera.m_Orbits[2].m_Height = 0.1f;
     }
 
     /// <summary>
